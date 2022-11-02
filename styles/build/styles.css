@@ -11,9 +11,8 @@ body, html {
 body {
   background-color: palevioletred;
   font-family: "Poppins", "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  place-items: center;
 }
 
 .card-wrapper .card .back, .card-wrapper .card .front {

@@ -6,9 +6,8 @@ $btn-color: rgb(104, 58, 179);
 body {
     background-color: palevioletred;
     font-family: "Poppins", "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    place-items: center;    
 }
 
 %card-face {
