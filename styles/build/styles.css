@@ -1,0 +1,60 @@
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  min-height: 100vh;
+}
+
+body {
+  background-color: palevioletred;
+  font-family: "Poppins", "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-wrapper .card .back, .card-wrapper .card .front {
+  width: 100%;
+  height: 100%;
+  background-color: #eeeeee;
+  text-align: center;
+  padding-top: 32px;
+  font-size: 2rem;
+  position: absolute;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+.card-wrapper .card .back .title, .card-wrapper .card .front .title {
+  transform: translateZ(120px);
+}
+.card-wrapper .card .back .subtitle, .card-wrapper .card .front .subtitle {
+  font-size: 1rem;
+  color: rgba(0, 0, 0, 0.4);
+  transform: translateZ(70px);
+}
+
+.card-wrapper:hover .card {
+  transform: perspective(30em) rotateY(180deg);
+}
+.card-wrapper .card {
+  width: 300px;
+  height: 350px;
+  position: relative;
+  transition: transform 3s ease-out;
+  transform-style: preserve-3d;
+}
+.card-wrapper .card .front::after {
+  content: "";
+  position: absolute;
+  inset: 16px;
+  border: 4px solid;
+  transform: translateZ(30px);
+}
+.card-wrapper .card .back {
+  transform: perspective(30em) rotateY(180deg);
+}
+
+/*# sourceMappingURL=styles.css.map */

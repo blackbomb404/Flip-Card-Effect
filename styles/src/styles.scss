@@ -1,0 +1,67 @@
+@use "./reset";
+
+$btn-color: rgb(104, 58, 179);
+
+
+body {
+    background-color: palevioletred;
+    font-family: "Poppins", "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+%card-face {
+    width: 100%;
+    height: 100%;
+    background-color: #eeeeee;
+    text-align: center;
+    padding-top: 32px;
+    font-size: 2rem;
+    position: absolute;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    
+    .title {
+        transform: translateZ(120px);            
+    }
+
+    .subtitle {
+        font-size: 1rem;
+        color: rgba(0, 0, 0, .4);
+        transform: translateZ(70px);
+    }
+}
+
+.card-wrapper {
+    
+    &:hover .card {
+        transform: perspective(30em) rotateY(180deg);
+    }
+
+    .card {
+        width: 300px;
+        height: 350px;
+        position: relative;
+        transition: transform 3s ease-out;
+        transform-style: preserve-3d;
+    
+        .front {
+            @extend %card-face;
+
+            &::after {
+                content: '';
+                position: absolute;
+                inset: 16px;
+                border: 4px solid;
+
+                transform: translateZ(30px);
+            }
+        }
+        .back {
+            @extend %card-face;
+            transform: perspective(30em) rotateY(180deg);
+        }
+    }
+    
+}
